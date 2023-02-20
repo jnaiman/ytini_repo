@@ -68,8 +68,8 @@ for level in range(minLevel, maxLevel+1):
        ijkout = subGrid.get_global_startindex()
 
        # Copy data from grid to OpenVDB FloatGrid starting from global x,y,z index in OpenVDB FloatGrid
-       maskCube.copyFromArray(mask, ijk=(ijkout[0],ijkout[1],ijkout[2]))
-       dataCube.copyFromArray(subGridVarWithGZ, ijk=(ijkout[0],ijkout[1],ijkout[2]))
+       maskCube.copyFromArray(mask, ijk=(int(ijkout[0]),int(ijkout[1]),int(ijkout[2])))
+       dataCube.copyFromArray(subGridVarWithGZ, ijk=(int(ijkout[0]),int(ijkout[1]),int(ijkout[2])))
 
    # Calculate a reasonable voxel size
    resolution = ds.domain_dimensions*ds.refine_by**level
