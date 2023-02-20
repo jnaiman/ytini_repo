@@ -29,7 +29,7 @@ largestVSize = None
 
 # Error checking: is this variable in the data?
 if not [item for item in ds.field_list if item[1] == variable]:
-   print >> sys.stderr, "ERROR: Invalid field name: " + variable
+   print(f'Error: Invalid field name: {variable}',file=sys.stderr)
    exit()
 
 # This is required to be able to write out ghost zones for FLASH data
@@ -95,4 +95,4 @@ for level in range(minLevel, maxLevel+1):
    vdb.write(outFilePath, grids=output)
 
    # Give feedback to see progress
-   print "Finished level " + str(level)
+   print(f"Finished level {level}")
